@@ -2,5 +2,5 @@
 #include <stdlib.h>
 
 int main() {
-    printf("fun project!")
+  printf("fun project!\n");
 }
