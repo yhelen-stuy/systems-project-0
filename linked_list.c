@@ -13,15 +13,22 @@ void print_list(struct song_node *list) {
     printf("%d ]\n", list->x);
 }
 
-struct song_node * insert_front(struct song_node *list, int a) {
+struct song_node * insert_front(struct song_node *list, char *title, char *artist) {
     struct song_node *p = (struct song_node *)malloc(sizeof(struct song_node));
-    p->x = a;
+    p->title = title;
+    p->artist = artist;
     p->next = list;
     return p;
 }
 
 struct song_node * insert_sorted(struct song_node *list, char *title, char *artist) {
-
+  while (strcmp(list->artist, artist) <  0) {
+    list = list->next;
+  }
+  while ((strcmp(list->title, title) <  0) && (strcmp(list->artist, artist) ==  0)) {
+    list = list->next;
+  }
+  return insert_front(list,title,artist);
 }
 
 struct song_node * find_song(struct song_node *list, char *title) {
@@ -45,7 +52,7 @@ struct song_node * find_artist(struct song_node *list, char *title) {
 }
 
 // look over
-struct song_node * remove(struct song_node *list, struct song_node *song) {
+void remove(struct song_node *list, struct song_node *song) {
     while (list && list->next != song) {
         list = list->next;
     }
@@ -58,7 +65,7 @@ struct song_node * remove(struct song_node *list, struct song_node *song) {
 struct song_node * free_list(struct song_node *list) {
     struct song_node *start = list;
     struct song_node *temp;
-    while (temp) {
+    while (start) {
         temp = start->next;
         free(start);
         start = temp;
