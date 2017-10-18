@@ -23,15 +23,17 @@ struct song_node * insert_front(struct song_node *list, char *title, char *artis
 
 // TODO - SEGFAULTS
 struct song_node * insert_sorted(struct song_node *list, char *title, char *artist) {
+    struct song_node *head = list;
     while (list && strcmp(list->artist, artist) <  0) {
+        print_list(list);
         list = list->next;
     }
-    if (list->next) {
-        while ((strcmp(list->title, title) <  0) && (strcmp(list->artist, artist) ==  0)) {
-            list = list->next;
-            return insert_front(list,title,artist);
-        }
+    while (list && (strcmp(list->title, title) < 0) && (strcmp(list->artist, artist) ==  0)) {
+        print_list(list);
+        list = list->next;
     }
+    insert_front(list,title,artist);
+    return head;
 }
 
 struct song_node * find_song(struct song_node *list, char *title) {
