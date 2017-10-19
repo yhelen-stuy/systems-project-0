@@ -4,6 +4,8 @@ struct song_node {
     struct song_node *next;
 };
 
+unsigned char * lower(char *str);
+
 void print_list(struct song_node *);
 
 struct song_node * insert_front(struct song_node *, char *, char *);

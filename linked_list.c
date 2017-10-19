@@ -1,8 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #include "linked_list.h"
+
+unsigned char * lower(char *str) {
+    unsigned char *my_str = (unsigned char *) str;
+    int i = 0;
+    for (; my_str[i]; i++) {
+        my_str[i] = tolower(my_str[i]);
+    }
+    return my_str;
+}
 
 void print_list(struct song_node *list) {
     printf("[ ");

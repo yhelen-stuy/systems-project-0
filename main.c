@@ -9,6 +9,7 @@ int main() {
     /*
     printf("===TESTING LINKED LIST===\n");
     printf("***ADDING SONGS***\n");
+    */
     struct song_node *head = (struct song_node *)malloc(sizeof(struct song_node));
     strcpy(head->artist, "Camilla Cabillo");
     strcpy(head->title, "Havana");
@@ -17,6 +18,7 @@ int main() {
     // head = insert_front(head, "Shape of You", "Ed Sheeran");
     // head = insert_front(head, "New Rules", "Dua Lipa");
     // head = insert_front(head, "Perfect", "Ed Sheeran");
+    /*
     head = insert_sorted(head, "Side to Side", "Ariana Grande");
     head = insert_sorted(head, "Shape of You", "Ed Sheeran");
     head = insert_sorted(head, "Focus", "Ariana Grande");
@@ -55,9 +57,7 @@ int main() {
     */
 
     printf("===TESTING MUSIC LIBRARY===\n");
-    printf("lib pointer: %p\n", lib);
-    add_song("Symphony No. 5", "Beethoven");
-    print_lib();
+    add_song("Symphony No. 5", "beethoven");
 
     return 0;
 }

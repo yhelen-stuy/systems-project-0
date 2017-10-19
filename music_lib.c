@@ -9,12 +9,19 @@ void add_song(char *title, char *artist) {
     char l = artist[0];
     char a = 'a';
     struct song_node *songs = lib[l-a];
-    insert_sorted(songs, title, artist);
+    lib[l-a] = insert_front(lib[l-a], title, artist);
 }
 
-/* struct song_node * search_song(char *title) { */
-
-/* } */
+struct song_node * search_song(char *title) {
+    int i = 0;
+    for(; i < 26 ; i++) {
+        struct song_node *song = find_song(lib[i], title);
+        if (song) {
+            return song;
+        }
+    }
+    return 0;
+}
 
 /* struct song_node * search_artist(char *artist) { */
 
