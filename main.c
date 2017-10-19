@@ -57,8 +57,9 @@ int main() {
     */
 
     printf("===TESTING MUSIC LIBRARY===\n");
-    add_song("Symphony No. 5", "beethoven");
+    add_song("Symphony No. 5", "Beethoven");
     print_lib();
+    print_list(search_song("Symphony No. 5"));
 
     return 0;
 }

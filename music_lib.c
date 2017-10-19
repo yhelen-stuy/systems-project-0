@@ -6,7 +6,7 @@
 #include "music_lib.h"
 
 void add_song(char *title, char *artist) {
-    char l = artist[0];
+    char l = tolower(artist[0]);
     char a = 'a';
     struct song_node *songs = lib[l-a];
     lib[l-a] = insert_front(lib[l-a], title, artist);

@@ -64,8 +64,10 @@ struct song_node * insert_sorted(struct song_node *list, char *title, char *arti
 }
 
 struct song_node * find_song(struct song_node *list, char *title) {
+    unsigned char l_title[strlen(title)];
+    lower(strcpy(l_title, title));
     while (list) {
-        if (strcmp(list->title, title) == 0) {
+        if (strcmp(list->title, l_title) == 0) {
             return list;
         }
         list = list->next;
