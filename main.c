@@ -6,7 +6,7 @@
 #include "music_lib.h"
 
 int main() {
-    /* 
+    /*
     printf("===TESTING LINKED LIST===\n");
     printf("***ADDING SONGS***\n");
     struct song_node *head = (struct song_node *)malloc(sizeof(struct song_node));
@@ -56,6 +56,8 @@ int main() {
 
     printf("===TESTING MUSIC LIBRARY===\n");
     printf("lib pointer: %p\n", lib);
+    add_song("Symphony No. 5", "Beethoven");
+    print_lib();
 
     return 0;
 }

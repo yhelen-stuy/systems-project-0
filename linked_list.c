@@ -95,3 +95,12 @@ struct song_node * free_list(struct song_node *list) {
     }
     return NULL;
 }
+
+unsigned long llist_len(struct song_node *list) {
+    int len = 0;
+    while (list) {
+        len++;
+        list = list->next;
+    }
+    return len;
+}

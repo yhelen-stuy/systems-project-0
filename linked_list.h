@@ -19,3 +19,5 @@ struct song_node * random_element(struct song_node *);
 void remove_song(struct song_node *, struct song_node *);
 
 struct song_node * free_list(struct song_node *);
+
+unsigned long llist_len(struct song_node *);

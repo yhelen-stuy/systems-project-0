@@ -1,5 +1,5 @@
 all:
-	gcc -o music_lib -g main.c linked_list.c
+	gcc -o music_lib -g main.c linked_list.c music_lib.c
 
 run: all
 	./music_lib

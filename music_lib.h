@@ -1,6 +1,6 @@
 struct song_node* lib[26];
 // Add songs.
-int add_song(char *, char *);
+void add_song(char *, char *);
 
 // Search for a song.
 struct song_node * search_song(char *);
