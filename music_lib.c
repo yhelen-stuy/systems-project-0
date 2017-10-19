@@ -23,17 +23,26 @@ struct song_node * search_song(char *title) {
     return 0;
 }
 
-/* struct song_node * search_artist(char *artist) { */
+struct song_node * search_artist(char *artist) { 
+  char l = tolower(artist[0]);
+  char a = 'a';
+  struct song_node *art = find_artist(lib[l-a], artist);
+  if (art) {
+    return art;
+  }
+  return 0;
+}
 
-/* } */
+void print_letter(char letter) {
+  char l = tolower(letter);
+  char a = 'a';
+  print_list(lib[l-a]);
+} 
 
-/* void print_letter(char letter) { */
-
-/* } */
-
-/* void print_artist(char* artist) { */
-
-/* } */
+void print_artist(char* artist) {
+  printf("Printing %s\n",artist);
+  print_list(search_artist(artist));
+}
 
 void print_lib() {
     int i = 0;

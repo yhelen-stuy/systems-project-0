@@ -76,11 +76,13 @@ struct song_node * find_song(struct song_node *list, char *title) {
 }
 
 struct song_node * find_artist(struct song_node *list, char *artist) {
+    unsigned char l_artist[strlen(artist)];
+    lower(strcpy(l_artist, artist));
     while (list) {
-        if (strcmp(list->artist, artist) == 0) {
-            return list;
-        }
-        list = list->next;
+       if (strcmp(list->artist, l_artist) == 0) {
+           return list;
+       }
+       list = list->next;
     }
     return NULL;
 }

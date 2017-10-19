@@ -58,8 +58,22 @@ int main() {
 
     printf("===TESTING MUSIC LIBRARY===\n");
     add_song("Symphony No. 5", "Beethoven");
+    add_song("Focus", "Ariana Grande");
+    add_song("Side to Side", "Ariana Grande");
+    add_song("Shape of You", "Ed Sheeran");
+    add_song("Galway Girl", "Ed Sheeran"); 
+    add_song("New Rules", "Dua Lipa");
+    add_song("Perfect", "Ed Sheeran"); 
+    add_song("Problem", "Ariana Grande");
     print_lib();
+    printf("\n");
     print_list(search_song("Symphony No. 5"));
+    printf("\n");
+    print_list(search_artist("Ariana Grande"));
+    printf("\n");
+    print_letter('b');
+    printf("\n");
+    print_artist("Ariana Grande");
 
     return 0;
 }
