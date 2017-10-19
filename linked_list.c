@@ -27,6 +27,8 @@ struct song_node * insert_front(struct song_node *list, char *title, char *artis
     struct song_node *p = (struct song_node *)malloc(sizeof(struct song_node));
     strcpy(p->title, title);
     strcpy(p->artist, artist);
+    lower(p->title);
+    lower(p->artist);
     p->next = list;
     return p;
 }
