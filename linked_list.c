@@ -106,7 +106,8 @@ struct song_node * find_artist(struct song_node *list, char *artist) {
     return NULL;
 }
 
-// Go through the list and remove a song
+// Go through the list and remove a song,
+// freeing it in the process.
 void remove_song(struct song_node *list, struct song_node *song) {
     while (list && list->next != song) {
         list = list->next;
@@ -118,6 +119,7 @@ void remove_song(struct song_node *list, struct song_node *song) {
     }
 }
 
+// Free an entire list of songs
 struct song_node * free_list(struct song_node *list) {
     struct song_node *start = list;
     struct song_node *temp;
@@ -131,8 +133,10 @@ struct song_node * free_list(struct song_node *list) {
     return NULL;
 }
 
-unsigned long llist_len(struct song_node *list) {
-    int len = 0;
+// A function to returned a size_t of the length of the list
+// AKA an unsigned long
+size_t llist_len(struct song_node *list) {
+    size_t len = 0;
     while (list) {
         len++;
         list = list->next;
