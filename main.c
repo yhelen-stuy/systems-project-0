@@ -96,7 +96,6 @@ int main() {
     printf("\n====================================\n");
     printf("\nTesting print_letter\n");
     print_letter('E');
-    print_letter('\n');
     print_letter('B');
 
     printf("\n====================================\n");
