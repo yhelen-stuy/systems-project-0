@@ -7,6 +7,8 @@
 #include "linked_list.h"
 #include "music_lib.h"
 
+// Add a song to the lib by the artist name
+// in sorted order for the linked list
 void add_song(char *title, char *artist) {
     char l = tolower(artist[0]);
     char a = 'a';
@@ -14,9 +16,10 @@ void add_song(char *title, char *artist) {
     lib[l-a] = insert_sorted(songs, title, artist);
 }
 
+// Look through the song for a specific title
 struct song_node * search_song(char *title) {
     int i = 0;
-    for(; i < 26 ; i++) {
+    for(; i < ('z' - 'a') ; i++) {
         struct song_node *song = find_song(lib[i], title);
         if (song) {
             return song;
@@ -47,7 +50,7 @@ art -> next = NULL;
 return head;
 }*/
 
-
+// Find the pointer to the artist in the appropriate index of the lib
 struct song_node * search_artist(char *artist) {
     unsigned char l_artist[strlen(artist)];
     lower(strcpy(l_artist, artist));
@@ -60,6 +63,7 @@ struct song_node * search_artist(char *artist) {
     return 0;
 }
 
+// Print the linked list of the letter specified
 void print_letter(char letter) {
     printf("Printing the letter %c\n",letter);
     char l = tolower(letter);
@@ -69,8 +73,9 @@ void print_letter(char letter) {
         print_song(let);
         let = let -> next;
     }
-} 
+}
 
+// Given an artist, print their songs
 void print_artist(char* artist) {
     printf("Printing %s\n",artist);
     struct song_node * art = search_artist(artist);
@@ -82,10 +87,11 @@ void print_artist(char* artist) {
     }
 }
 
+// Print the entire library
 void print_lib() {
     int i = 0;
     char a = 'a';
-    for (; i < 26; i++) {
+    for (; i < 'z'-'a'; i++) {
         if (llist_len(lib[i]) > 0) {
             printf("%c songs\n\t", (a + i));
             print_list(lib[i]);
@@ -98,7 +104,7 @@ void print_lib() {
    int count(){
    int count = 0;
    int i;
-   for(i = 0; i < 26; i++){
+   for(i = 0; i < 'z' - 'a'; i++){
    if (llist_len(lib[i]) > 0)
    count++;
    }
@@ -108,7 +114,7 @@ void print_lib() {
    struct song_node* available(int size){
    struct song_node* letters[size];
    int i;
-   for(i = 0; i < 26; i++){
+   for(i = 0; i < 'z'-'a'; i++){
    int count = 0;
    if (llist_len(lib[i]) > 0){
    letters[count] = lib[i];
@@ -118,6 +124,8 @@ void print_lib() {
    return *letters;
    }*/
 
+// Generate a specified number of songs, shuffled
+// and print them
 void shuffle(int num_songs) {
     printf("Generating %d random songs...\n",num_songs);
     srand(time(NULL));
@@ -125,7 +133,7 @@ void shuffle(int num_songs) {
     //count the number of letters in the lib that have songs
     int numlets = 0;
     int i;
-    for(i = 0; i < 26; i++){
+    for(i = 0; i < 'z'-'a'; i++){
         if (llist_len(lib[i]) > 0)
             numlets++;
     }
@@ -133,7 +141,7 @@ void shuffle(int num_songs) {
     //make an array of all the letters in the lib that have songs
     struct song_node *availletters[numlets];
     int count = 0;
-    for(i = 0; i < 26; i++){
+    for(i = 0; i < 'z'-'a'; i++){
         if (llist_len(lib[i]) > 0){
             availletters[count] = lib[i];
             count++;
@@ -156,17 +164,19 @@ void shuffle(int num_songs) {
 
 }
 
+// Delete a song from the library
 void delete_song(char *title) {
     struct song_node *song = search_song(title);
     char *artist = song -> artist;
     remove_song(search_artist(artist),search_song(title));
-} 
+}
 
+// Clear the entire library
 void clear_lib() {
     printf("Clearing library...\n");
     int i = 0;
     char a = 'a';
-    for (; i < 26; i++) {
+    for (; i < 'z'-'a'; i++) {
         if (llist_len(lib[i]) > 0) {
             free_list(lib[i]);
         }
