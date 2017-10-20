@@ -2,8 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
 
 #include "linked_list.h"
+
+
 
 // Take a mutable string and standardize it to lowercase
 unsigned char * lower(char *str) {
@@ -104,6 +107,22 @@ struct song_node * find_artist(struct song_node *list, char *artist) {
        list = list->next;
     }
     return NULL;
+}
+
+//broken
+//will return the same song because srand has the same numbers
+struct song_node * random_element(struct song_node *list){
+     struct song_node *r = (struct song_node *)malloc(sizeof(struct song_node));
+     srand(time(NULL));
+     int len = llist_len(list);
+     int i;
+     int randsongpos = rand() % len;
+     for(i = 0; i < randsongpos; i++){
+       list = list -> next;
+     }
+     strcpy(r -> title,list -> title);
+     strcpy(r -> artist,list -> artist);
+     return r;
 }
 
 // Go through the list and remove a song,

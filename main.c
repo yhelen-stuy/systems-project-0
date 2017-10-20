@@ -7,7 +7,7 @@
 
 int main() {
     // UNCOMMENT BLOCK BELOW FOR LINKED LIST TESTING
-    /*
+    
        printf("===TESTING LINKED LIST===\n");
        printf("***ADDING SONGS***\n");
        struct song_node *head = (struct song_node *)malloc(sizeof(struct song_node));
@@ -46,6 +46,12 @@ int main() {
     print_list(find_artist(head, "Ed Sheeran"));
     printf("\n");
 
+    //doesn't work, check linked_list
+    printf("***RANDOM***\n");
+    print_song(random_element(head));
+    print_song(random_element(head));
+    print_song(random_element(head));
+    
     printf("***REMOVING***\n");
     remove_song(head, find_song(head, "Havana"));
     printf("After removal: \n\t");
@@ -53,7 +59,7 @@ int main() {
     printf("\n");
 
     free_list(head);
-    */
+    
 
     printf("\n====================================\n");
     printf("\n       TESTING MUSIC LIBRARY        \n");

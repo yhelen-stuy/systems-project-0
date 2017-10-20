@@ -28,28 +28,6 @@ struct song_node * search_song(char *title) {
     return 0;
 }
 
-//ignore the ugly mess
-/*struct song_node * search_artist(char *artist) {
-  unsigned char l_artist[strlen(artist)];
-  lower(strcpy(l_artist, artist));
-  char l = l_artist[0];
-  char a = 'a';
-  struct song_node *art = find_artist(lib[l-a], l_artist);
-  struct song_node *head = 
-
-  struct song_node *head = art;
-  struct song_node *prev = art;
-//printf("ONE");
-while(art && art->next && (strcmp(art->next->artist, l_artist) == 0)) {
-printf("RAN\n");
-prev = art;
-art = art -> next;
-}
-if(art)
-art -> next = NULL;
-return head;
-}*/
-
 // Find the pointer to the artist in the appropriate index of the lib
 struct song_node * search_artist(char *artist) {
     unsigned char l_artist[strlen(artist)];
@@ -99,31 +77,6 @@ void print_lib() {
     }
 }
 
-//the helper functions I tried to write but it wouldn't work
-/*
-   int count(){
-   int count = 0;
-   int i;
-   for(i = 0; i < 'z' - 'a'; i++){
-   if (llist_len(lib[i]) > 0)
-   count++;
-   }
-   return count;
-   }
-
-   struct song_node* available(int size){
-   struct song_node* letters[size];
-   int i;
-   for(i = 0; i < 'z'-'a'; i++){
-   int count = 0;
-   if (llist_len(lib[i]) > 0){
-   letters[count] = lib[i];
-   count++;
-   }
-   }
-   return *letters;
-   }*/
-
 // Generate a specified number of songs, shuffled
 // and print them
 void shuffle(int num_songs) {
@@ -154,12 +107,18 @@ void shuffle(int num_songs) {
         int randpos = rand() % numlets;
         struct song_node *availsongs = availletters[randpos];
         //pick a random song from the list
+	//struct song_node *s = random_element(availsongs);
+	/*
         int randsongpos = rand() % llist_len(availsongs);
         int j;
         for(j = 0; j < randsongpos; j++){
             availsongs = availsongs -> next;
-        }
+	    }
         print_song(availsongs);
+	*/
+
+	//random_element does not work right, the last two songs are always the same
+        print_song(random_element(availsongs));
     }
 
 }
