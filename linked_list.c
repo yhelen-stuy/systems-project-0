@@ -23,6 +23,12 @@ void print_list(struct song_node *list) {
     printf("]\n");
 }
 
+void print_song(struct song_node *song){
+  if (song) {
+        printf("%s by %s\n", song->title, song->artist);
+    }
+}
+
 struct song_node * insert_front(struct song_node *list, char *title, char *artist) {
     struct song_node *p = (struct song_node *)malloc(sizeof(struct song_node));
     strcpy(p->title, title);

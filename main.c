@@ -56,7 +56,9 @@ int main() {
     free_list(head);
     */
 
-    printf("===TESTING MUSIC LIBRARY===\n");
+    printf("\n====================================\n");
+    printf("\n       TESTING MUSIC LIBRARY        \n");
+    printf("\n====================================\n");
     add_song("Symphony No. 5", "Beethoven");
     add_song("Focus", "Ariana Grande");
     add_song("Side to Side", "Ariana Grande");
@@ -65,15 +67,44 @@ int main() {
     add_song("New Rules", "Dua Lipa");
     add_song("Perfect", "Ed Sheeran"); 
     add_song("Problem", "Ariana Grande");
+    add_song("Scars To Your Beautiful", "Alessia Cara");
+    printf("\nTesting print_lib\n");
     print_lib();
-    printf("\n");
-    print_list(search_song("Symphony No. 5"));
-    printf("\n");
-    print_list(search_artist("Ariana Grande"));
-    printf("\n");
-    print_letter('b');
-    printf("\n");
+    printf("\n====================================\n");
+    printf("\nTesting find_song\n");
+    char song[] = "Symphony No. 5";
+    printf("Looking for %s\n",song);
+    print_song(search_song(song));
+    printf("\n====================================\n");
+    printf("\nTesting find_artist\n");
+
+    //HOW TO PRINT SEARCH ARTIST?
+    
+    char artist[] = "Ariana Grande";
+    printf("Looking for %s\n",artist);
+    print_list(search_artist(artist));
+    
+    printf("\n====================================\n");
+    
+    printf("\nTesting print_letter\n");
+    print_letter('E');
+    print_letter('\n');
+    print_letter('B');
+    printf("\n====================================\n");
+    printf("\nTesting print_artist\n");
     print_artist("Ariana Grande");
+    printf("\n");
+    print_artist("Ed Sheeran");
+    printf("\n====================================\n");
+    printf("\nTesting delete_song\n");
+    delete_song("Focus");
+    print_lib();
+    printf("\n====================================\n");
+    printf("\nTesting shuffle\n");
+    shuffle(3);
+    printf("\n====================================\n");
+    printf("\n");
+    clear_lib();
 
     return 0;
 }
