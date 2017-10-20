@@ -69,6 +69,9 @@ int main() {
     add_song("Perfect", "Ed Sheeran"); 
     add_song("Problem", "Ariana Grande");
     add_song("Scars To Your Beautiful", "Alessia Cara");
+    add_song("Heart Attack", "Demi Lovato");
+    add_song("Set Fire to the Rain", "Adele");
+    add_song("Wild Things","Alessia Cara");
     printf("\nTesting print_lib\n");
     print_lib();
     printf("\n====================================\n");
