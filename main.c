@@ -77,16 +77,20 @@ int main() {
     printf("\n====================================\n");
     printf("\nTesting find_song\n");
     char song[] = "Symphony No. 5";
-    printf("Looking for %s\n",song);
+    printf("Searching for %s\n",song);
     print_song(search_song(song));
     printf("\n====================================\n");
     printf("\nTesting find_artist\n");
 
     //HOW TO PRINT SEARCH ARTIST?
     
-    char artist[] = "Ariana Grande";
-    printf("Looking for %s\n",artist);
+    char artist[] = "Alessia Cara";
+    printf("Searching for %s\n",artist);
     print_list(search_artist(artist));
+
+    char artis[] = "Ariana Grande";
+    printf("Searching for %s\n",artis);
+    print_list(search_artist(artis));
     
     printf("\n====================================\n");
     
@@ -99,6 +103,9 @@ int main() {
     print_artist("Ariana Grande");
     printf("\n");
     print_artist("Ed Sheeran");
+    printf("\n");
+    //doesn't work yet
+    print_artist("Alessia Cara");
     printf("\n====================================\n");
     printf("\nTesting delete_song\n");
     delete_song("Focus");

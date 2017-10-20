@@ -24,10 +24,35 @@ struct song_node * search_song(char *title) {
   return 0;
 }
 
-struct song_node * search_artist(char *artist) { 
-  char l = tolower(artist[0]);
+//ignore the ugly mess
+/*struct song_node * search_artist(char *artist) {
+  unsigned char l_artist[strlen(artist)];
+  lower(strcpy(l_artist, artist));
+  char l = l_artist[0];
   char a = 'a';
-  struct song_node *art = find_artist(lib[l-a], artist);
+  struct song_node *art = find_artist(lib[l-a], l_artist);
+  struct song_node *head = 
+  
+  struct song_node *head = art;
+  struct song_node *prev = art;
+  //printf("ONE");
+  while(art && art->next && (strcmp(art->next->artist, l_artist) == 0)) {
+    printf("RAN\n");
+    prev = art;
+    art = art -> next;
+  }
+  if(art)
+    art -> next = NULL;
+  return head;
+  }*/
+
+
+struct song_node * search_artist(char *artist) {
+  unsigned char l_artist[strlen(artist)];
+  lower(strcpy(l_artist, artist));
+  char l = l_artist[0];
+  char a = 'a';
+  struct song_node *art = find_artist(lib[l-a], l_artist);
   if (art) {
     return art;
   }
