@@ -6,13 +6,13 @@
 #include "music_lib.h"
 
 int main() {
-    // UNCOMMENT BLOCK BELOW FOR LINKED LIST TESTING
-    
-       printf("===TESTING LINKED LIST===\n");
-       printf("***ADDING SONGS***\n");
-       struct song_node *head = (struct song_node *)malloc(sizeof(struct song_node));
-       strcpy(head->artist, "camilla cabillo");
-       strcpy(head->title, "havana");
+    srand(time(NULL));
+
+    printf("===TESTING LINKED LIST===\n");
+    printf("***ADDING SONGS***\n");
+    struct song_node *head = (struct song_node *)malloc(sizeof(struct song_node));
+    strcpy(head->artist, "camilla cabillo");
+    strcpy(head->title, "havana");
     //   head = insert_front(head, "Galway Girl", "Ed Sheeran");
     //   head = insert_front(head, "Shape of You", "Ed Sheeran");
     //   head = insert_front(head, "New Rules", "Dua Lipa");
@@ -51,7 +51,7 @@ int main() {
     print_song(random_element(head));
     print_song(random_element(head));
     print_song(random_element(head));
-    
+
     printf("***REMOVING***\n");
     remove_song(head, find_song(head, "Havana"));
     printf("After removal: \n\t");
@@ -59,7 +59,6 @@ int main() {
     printf("\n");
 
     free_list(head);
-    
 
     printf("\n====================================\n");
     printf("\n       TESTING MUSIC LIBRARY        \n");

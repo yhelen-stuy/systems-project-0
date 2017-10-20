@@ -1,9 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <time.h>
-
 #include "linked_list.h"
 #include "music_lib.h"
 
@@ -81,7 +75,6 @@ void print_lib() {
 // and print them
 void shuffle(int num_songs) {
     printf("Generating %d random songs...\n",num_songs);
-    srand(time(NULL));
 
     //count the number of letters in the lib that have songs
     int numlets = 0;
@@ -107,17 +100,17 @@ void shuffle(int num_songs) {
         int randpos = rand() % numlets;
         struct song_node *availsongs = availletters[randpos];
         //pick a random song from the list
-	//struct song_node *s = random_element(availsongs);
-	/*
-        int randsongpos = rand() % llist_len(availsongs);
-        int j;
-        for(j = 0; j < randsongpos; j++){
-            availsongs = availsongs -> next;
-	    }
-        print_song(availsongs);
-	*/
+        //struct song_node *s = random_element(availsongs);
+        /*
+           int randsongpos = rand() % llist_len(availsongs);
+           int j;
+           for(j = 0; j < randsongpos; j++){
+           availsongs = availsongs -> next;
+           }
+           print_song(availsongs);
+           */
 
-	//random_element does not work right, the last two songs are always the same
+        //random_element does not work right, the last two songs are always the same
         print_song(random_element(availsongs));
     }
 

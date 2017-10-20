@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <time.h>
+
 struct song_node* lib[26];
 // Add songs.
 void add_song(char *, char *);
