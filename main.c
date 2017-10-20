@@ -18,7 +18,7 @@ int main() {
     // head = insert_front(head, "Shape of You", "Ed Sheeran");
     // head = insert_front(head, "New Rules", "Dua Lipa");
     // head = insert_front(head, "Perfect", "Ed Sheeran");
-    /*
+    
     head = insert_sorted(head, "Side to Side", "Ariana Grande");
     head = insert_sorted(head, "Shape of You", "Ed Sheeran");
     head = insert_sorted(head, "Focus", "Ariana Grande");
@@ -54,8 +54,8 @@ int main() {
     printf("\n");
 
     free_list(head);
-    */
-
+    
+    /*
     printf("\n====================================\n");
     printf("\n       TESTING MUSIC LIBRARY        \n");
     printf("\n====================================\n");
@@ -105,6 +105,7 @@ int main() {
     printf("\n====================================\n");
     printf("\n");
     clear_lib();
+    */
 
     return 0;
 }

@@ -10,7 +10,7 @@ void add_song(char *title, char *artist) {
     char l = tolower(artist[0]);
     char a = 'a';
     struct song_node *songs = lib[l-a];
-    lib[l-a] = insert_front(lib[l-a], title, artist);
+    lib[l-a] = insert_sorted(songs, title, artist);
 }
 
 struct song_node * search_song(char *title) {
