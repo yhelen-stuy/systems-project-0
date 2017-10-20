@@ -41,18 +41,24 @@ struct song_node * insert_front(struct song_node *list, char *title, char *artis
 
 // TODO - SEGFAULTS
 struct song_node * insert_sorted(struct song_node *list, char *title, char *artist) {
+    unsigned char l_title[strlen(title)];
+    lower(strcpy(l_title, title));
+    unsigned char l_artist[strlen(artist)];
+    lower(strcpy(l_artist, artist));
+    //printf("%s, %s",ltitle,lartist);
+  
     struct song_node *head = list;
     int nex = 1;
     struct song_node *prev = list;
 
-    while (list && strcmp(list->artist, artist) <  0) {
+    while (list && strcmp(list->artist, l_artist) <  0) {
         //print_list(list);
         prev = list;
         list = list->next;
         nex = 0;
     }
 
-    while (list && (strcmp(list->title, title) < 0) && (strcmp(list->artist, artist) ==  0)) {
+    while (list && (strcmp(list->title, l_title) < 0) && (strcmp(list->artist, l_artist) ==  0)) {
         //print_list(list);
         prev = list;
         list = list->next;
@@ -61,10 +67,10 @@ struct song_node * insert_sorted(struct song_node *list, char *title, char *arti
 
     //if the new node is the new head, use insert_Front
     if(nex) {
-        return insert_front(list,title,artist);
+        return insert_front(list,l_title,l_artist);
     }
 
-    struct song_node *newnode = insert_front(list,title,artist);
+    struct song_node *newnode = insert_front(list,l_title,l_artist);
     prev -> next = newnode;
     return head;
 }

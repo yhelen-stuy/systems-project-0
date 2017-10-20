@@ -11,14 +11,15 @@ int main() {
     printf("***ADDING SONGS***\n");
     */
     struct song_node *head = (struct song_node *)malloc(sizeof(struct song_node));
-    strcpy(head->artist, "Camilla Cabillo");
-    strcpy(head->title, "Havana");
+    //lowered for testing but need to fix
+    strcpy(head->artist, "camilla cabillo");
+    strcpy(head->title, "havana");
     //head->next = (struct song_node *)malloc(sizeof(struct song_node));
     // head = insert_front(head, "Galway Girl", "Ed Sheeran");
     // head = insert_front(head, "Shape of You", "Ed Sheeran");
     // head = insert_front(head, "New Rules", "Dua Lipa");
     // head = insert_front(head, "Perfect", "Ed Sheeran");
-    
+    /*
     head = insert_sorted(head, "Side to Side", "Ariana Grande");
     head = insert_sorted(head, "Shape of You", "Ed Sheeran");
     head = insert_sorted(head, "Focus", "Ariana Grande");
@@ -54,8 +55,8 @@ int main() {
     printf("\n");
 
     free_list(head);
+    */
     
-    /*
     printf("\n====================================\n");
     printf("\n       TESTING MUSIC LIBRARY        \n");
     printf("\n====================================\n");
@@ -105,7 +106,7 @@ int main() {
     printf("\n====================================\n");
     printf("\n");
     clear_lib();
-    */
+    
 
     return 0;
 }
