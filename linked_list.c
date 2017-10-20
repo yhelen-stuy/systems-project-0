@@ -5,6 +5,7 @@
 
 #include "linked_list.h"
 
+// Take a mutable string and standardize it to lowercase
 unsigned char * lower(char *str) {
     unsigned char *my_str = (unsigned char *) str;
     int i = 0;
@@ -23,30 +24,33 @@ void print_list(struct song_node *list) {
     printf("]\n");
 }
 
+// Print a singular song if not null
 void print_song(struct song_node *song){
   if (song) {
         printf("%s by %s\n", song->title, song->artist);
     }
 }
 
+// Insert a song at the front of the linked list
 struct song_node * insert_front(struct song_node *list, char *title, char *artist) {
     struct song_node *p = (struct song_node *)malloc(sizeof(struct song_node));
     strcpy(p->title, title);
     strcpy(p->artist, artist);
+    // Standardize the title and artists to be lower case
     lower(p->title);
     lower(p->artist);
     p->next = list;
     return p;
 }
 
-// TODO - SEGFAULTS
+// Insert the song in order, primarily sorted by artist, secondarily by title
 struct song_node * insert_sorted(struct song_node *list, char *title, char *artist) {
     unsigned char l_title[strlen(title)];
     lower(strcpy(l_title, title));
     unsigned char l_artist[strlen(artist)];
     lower(strcpy(l_artist, artist));
     //printf("%s, %s",ltitle,lartist);
-  
+
     struct song_node *head = list;
     int nex = 1;
     struct song_node *prev = list;
@@ -75,6 +79,8 @@ struct song_node * insert_sorted(struct song_node *list, char *title, char *arti
     return head;
 }
 
+// Standardize title input
+// and search through the linked list for the song
 struct song_node * find_song(struct song_node *list, char *title) {
     unsigned char l_title[strlen(title)];
     lower(strcpy(l_title, title));
@@ -87,6 +93,7 @@ struct song_node * find_song(struct song_node *list, char *title) {
     return NULL;
 }
 
+// Same as above but the first instance of an artist
 struct song_node * find_artist(struct song_node *list, char *artist) {
     unsigned char l_artist[strlen(artist)];
     lower(strcpy(l_artist, artist));
@@ -99,7 +106,7 @@ struct song_node * find_artist(struct song_node *list, char *artist) {
     return NULL;
 }
 
-// look over
+// Go through the list and remove a song
 void remove_song(struct song_node *list, struct song_node *song) {
     while (list && list->next != song) {
         list = list->next;

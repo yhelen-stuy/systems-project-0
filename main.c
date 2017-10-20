@@ -10,10 +10,10 @@ int main() {
     printf("===TESTING LINKED LIST===\n");
     printf("***ADDING SONGS***\n");
     */
-    struct song_node *head = (struct song_node *)malloc(sizeof(struct song_node));
+    // struct song_node *head = (struct song_node *)malloc(sizeof(struct song_node));
     //lowered for testing but need to fix
-    strcpy(head->artist, "camilla cabillo");
-    strcpy(head->title, "havana");
+    // strcpy(head->artist, "camilla cabillo");
+    // strcpy(head->title, "havana");
     //head->next = (struct song_node *)malloc(sizeof(struct song_node));
     // head = insert_front(head, "Galway Girl", "Ed Sheeran");
     // head = insert_front(head, "Shape of You", "Ed Sheeran");
