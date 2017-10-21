@@ -12,7 +12,7 @@ int main() {
     printf("\n        TESTING LINKED LIST         \n");
     printf("\n====================================\n");
 
-    printf("\nTesting insert_sorted\n");
+    printf("\nAdding songs...\n");
     struct song_node *head = (struct song_node *)malloc(sizeof(struct song_node));
     strcpy(head->artist, "camilla cabillo");
     strcpy(head->title, "havana");
@@ -24,6 +24,7 @@ int main() {
     head = insert_sorted(head, "Perfect", "Ed Sheeran");
     head = insert_sorted(head, "Problem", "Ariana Grande");
     printf("\t");
+    printf("\nTesting print_list \n");
     print_list(head);
     printf("\n");
 
@@ -62,8 +63,7 @@ int main() {
 
     printf("\n====================================\n");
     printf("\nTesting remove_song\n");
-    remove_song(head, find_song(head, "Havana"));
-    print_song(find_song(head, "focus"));
+    head = remove_song(head, find_song(head, "Havana"));
     head = remove_song(head, find_song(head, "focus"));
     printf("After removal: \n\t");
     print_list(head);
@@ -99,6 +99,11 @@ int main() {
     char song[] = "Symphony No. 5";
     printf("Searching for %s\n",song);
     print_song(search_song(song));
+    printf("\n");
+
+    char son[] = "test";
+    printf("Searching for %s\n",son);
+    print_song(search_song(son));
 
     printf("\n====================================\n");
     printf("\nTesting find_artist\n");
@@ -114,12 +119,13 @@ int main() {
     printf("\n");
 
     char arti[] = "test";
-    printf("Searching for artist not in library %s\n",arti);
+    printf("Searching for artist not in library '%s'\n",arti);
     print_list(search_artist(arti));
 
     printf("\n====================================\n");
     printf("\nTesting print_letter\n");
     print_letter('E');
+    printf("\n");
     print_letter('B');
 
     printf("\n====================================\n");

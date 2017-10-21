@@ -100,17 +100,6 @@ void shuffle(int num_songs) {
         int randpos = rand() % numlets;
         struct song_node *availsongs = availletters[randpos];
         //pick a random song from the list
-        //struct song_node *s = random_element(availsongs);
-        /*
-           int randsongpos = rand() % llist_len(availsongs);
-           int j;
-           for(j = 0; j < randsongpos; j++){
-           availsongs = availsongs -> next;
-           }
-           print_song(availsongs);
-           */
-
-        //random_element does not work right, the last two songs are always the same
         print_song(random_element(availsongs));
     }
 

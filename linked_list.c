@@ -128,7 +128,7 @@ struct song_node * remove_song(struct song_node *list, struct song_node *song) {
         }
         if (list) {
             list->next = song->next;
-            //printf("..Removing %s by %s..\n", song->title, song->artist);
+            printf("..Removing %s by %s..\n", song->title, song->artist);
             free(song);
         }
         return head;
@@ -137,17 +137,6 @@ struct song_node * remove_song(struct song_node *list, struct song_node *song) {
 
 // Free an entire list of songs
 struct song_node * free_list(struct song_node *list) {
-    /*
-    struct song_node *start = list;
-    struct song_node *temp;
-    while (start) {
-        temp = start->next;
-        // Diagnostic print
-        printf("...Freeing %s by %s...\n", start->title, start->artist);
-        free(start);
-        start = temp;
-    }
-    */
     while (list) {
         list = remove_song(list, list);
     }
