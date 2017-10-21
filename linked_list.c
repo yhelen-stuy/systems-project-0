@@ -21,7 +21,7 @@ void print_list(struct song_node *list) {
 
 // Print a singular song if not null
 void print_song(struct song_node *song){
-  if (song) {
+    if (song) {
         printf("%s by %s\n", song->title, song->artist);
     }
 }
@@ -93,46 +93,51 @@ struct song_node * find_artist(struct song_node *list, char *artist) {
     unsigned char l_artist[strlen(artist)];
     lower(strcpy(l_artist, artist));
     while (list) {
-       if (strcmp(list->artist, l_artist) == 0) {
-           return list;
-       }
-       list = list->next;
+        if (strcmp(list->artist, l_artist) == 0) {
+            return list;
+        }
+        list = list->next;
     }
     return NULL;
 }
 
 // Return a random element of the list
 struct song_node * random_element(struct song_node *list){
-     int len = llist_len(list);
-     int i;
-     int randsongpos = rand() % len;
-     for(i = 0; i < randsongpos; i++){
-       list = list -> next;
-     }
-     return list;
+    int len = llist_len(list);
+    int i;
+    int randsongpos = rand() % len;
+    for(i = 0; i < randsongpos; i++){
+        list = list -> next;
+    }
+    return list;
 }
 
 // Go through the list and remove a song,
 // freeing it in the process.
-//FIX IF SONG IS FIRST NODE OF FIND ARTIST
-void remove_song(struct song_node *list, struct song_node *song) {
-  /*if(list == song){
-      list = song -> next;
-      printf("..Removing %s by %s..\n", song->title, song->artist);
-      free(song);
-      }*/
-    while (list && list ->next != song) {
-        list = list->next;
-    }
-    if (list) {
-        list->next = song->next;
-        //printf("..Removing %s by %s..\n", song->title, song->artist);
+// Return first node of the list
+struct song_node * remove_song(struct song_node *list, struct song_node *song) {
+    if (list == song) {
+        printf("..Removing %s by %s..\n", song->title, song->artist);
+        list = list -> next;
         free(song);
+        return list;
+    } else {
+        struct song_node * head = list;
+        while (list && list ->next != song) {
+            list = list->next;
+        }
+        if (list) {
+            list->next = song->next;
+            //printf("..Removing %s by %s..\n", song->title, song->artist);
+            free(song);
+        }
+        return head;
     }
 }
 
 // Free an entire list of songs
 struct song_node * free_list(struct song_node *list) {
+    /*
     struct song_node *start = list;
     struct song_node *temp;
     while (start) {
@@ -141,6 +146,10 @@ struct song_node * free_list(struct song_node *list) {
         printf("...Freeing %s by %s...\n", start->title, start->artist);
         free(start);
         start = temp;
+    }
+    */
+    while (list) {
+        list = remove_song(list, list);
     }
     return NULL;
 }
