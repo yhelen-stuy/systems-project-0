@@ -127,6 +127,8 @@ int main() {
     print_letter('E');
     printf("\n");
     print_letter('B');
+    printf("\n");
+    print_letter('Z');
 
     printf("\n====================================\n");
     printf("\nTesting print_artist\n");
@@ -141,7 +143,6 @@ int main() {
 
     printf("\n====================================\n");
     printf("\nTesting delete_song\n");
-    printf("Deleting Focus\n");
     delete_song("Focus");
     print_lib();
     printf("\n");
