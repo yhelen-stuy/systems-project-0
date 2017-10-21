@@ -27,7 +27,7 @@ int main() {
     print_list(head);
     printf("\n");
 
-    /*
+
     printf("\n====================================\n");
     printf("\nTesting find_song\n");
     printf("Finding Havana by Camilla Cabillo\n\t");
@@ -60,10 +60,9 @@ int main() {
     print_song(random_element(head));
     printf("\n");
 
-    */
     printf("\n====================================\n");
     printf("\nTesting remove_song\n");
-    /* remove_song(head, find_song(head, "Havana")); */
+    remove_song(head, find_song(head, "Havana"));
     print_song(find_song(head, "focus"));
     head = remove_song(head, find_song(head, "focus"));
     printf("After removal: \n\t");
@@ -74,7 +73,6 @@ int main() {
     printf("\nTesting free_list\n");
     free_list(head);
 
-    /*
 
     printf("\n====================================\n");
     printf("\n       TESTING MUSIC LIBRARY        \n");
@@ -150,7 +148,6 @@ int main() {
     printf("\n====================================\n");
     printf("\n");
     clear_lib();
-*/
 
     return 0;
 }

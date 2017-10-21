@@ -119,9 +119,11 @@ void shuffle(int num_songs) {
 // Delete a song from the library
 void delete_song(char *title) {
     struct song_node *song = search_song(title);
-    char *artist = song -> artist;
-    printf("..Removing %s by %s..\n", song->title, song->artist);
-    remove_song(search_artist(artist),song);
+    if (song) {
+        char *artist = song -> artist;
+        char let = tolower(artist[0]);
+        lib[let-'a'] = remove_song(lib[let-'a'], song);
+    }
 }
 
 // Clear the entire library
