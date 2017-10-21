@@ -3,9 +3,12 @@
 ## Instructions
 To compile:
 `$ make`
+
 To run:
 `$ make run`
+
 Running valgrind on the executable:
 `$ make test`
+
 To remove the executable:
 `$ make clean`
