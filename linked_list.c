@@ -10,6 +10,7 @@ unsigned char * lower(char *str) {
     return my_str;
 }
 
+// Print the entire list
 void print_list(struct song_node *list) {
     printf("[ ");
     while (list) {
@@ -44,21 +45,18 @@ struct song_node * insert_sorted(struct song_node *list, char *title, char *arti
     lower(strcpy(l_title, title));
     unsigned char l_artist[strlen(artist)];
     lower(strcpy(l_artist, artist));
-    //printf("%s, %s",ltitle,lartist);
 
     struct song_node *head = list;
     int nex = 1;
     struct song_node *prev = list;
 
     while (list && strcmp(list->artist, l_artist) <  0) {
-        //print_list(list);
         prev = list;
         list = list->next;
         nex = 0;
     }
 
     while (list && (strcmp(list->title, l_title) < 0) && (strcmp(list->artist, l_artist) ==  0)) {
-        //print_list(list);
         prev = list;
         list = list->next;
         nex = 0;
