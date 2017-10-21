@@ -8,16 +8,14 @@
 int main() {
     srand(time(NULL));
 
-    printf("===TESTING LINKED LIST===\n");
-    printf("***ADDING SONGS***\n");
+    printf("\n====================================\n");
+    printf("\n        TESTING LINKED LIST         \n");
+    printf("\n====================================\n");
+  
+    printf("\nTesting insert_sorted\n");
     struct song_node *head = (struct song_node *)malloc(sizeof(struct song_node));
     strcpy(head->artist, "camilla cabillo");
     strcpy(head->title, "havana");
-    //   head = insert_front(head, "Galway Girl", "Ed Sheeran");
-    //   head = insert_front(head, "Shape of You", "Ed Sheeran");
-    //   head = insert_front(head, "New Rules", "Dua Lipa");
-    //   head = insert_front(head, "Perfect", "Ed Sheeran");
-
     head = insert_sorted(head, "Side to Side", "Ariana Grande");
     head = insert_sorted(head, "Shape of You", "Ed Sheeran");
     head = insert_sorted(head, "Focus", "Ariana Grande");
@@ -29,7 +27,8 @@ int main() {
     print_list(head);
     printf("\n");
 
-    printf("***FINDING***\n");
+    printf("\n====================================\n");
+    printf("\nTesting find_song\n");
     printf("Finding Havana by Camilla Cabillo\n\t");
     print_list(find_song(head, "Havana"));
     printf("\n");
@@ -38,6 +37,8 @@ int main() {
     print_list(find_song(head, "test"));
     printf("\n");
 
+    printf("\n====================================\n");
+    printf("\nTesting find_artist\n");
     printf("Finding Camilla Cabillo\n\t");
     print_list(find_artist(head, "Camilla Cabillo"));
     printf("\n");
@@ -46,19 +47,29 @@ int main() {
     print_list(find_artist(head, "Ed Sheeran"));
     printf("\n");
 
-    //doesn't work, check linked_list
-    printf("***RANDOM***\n");
-    print_song(random_element(head));
-    print_song(random_element(head));
-    print_song(random_element(head));
+    printf("Finding artist not in list (\"test\")\n\t");
+    print_list(find_artist(head, "test"));
+    printf("\n");
 
-    printf("***REMOVING***\n");
+
+    printf("\n====================================\n");
+    printf("\nTesting random_element\n");
+    print_song(random_element(head));
+    print_song(random_element(head));
+    print_song(random_element(head));
+    printf("\n");
+
+    printf("\n====================================\n");
+    printf("\nTesting remove_song\n");
     remove_song(head, find_song(head, "Havana"));
     printf("After removal: \n\t");
     print_list(head);
     printf("\n");
 
+    printf("\n====================================\n");
+    printf("\nTesting free_list\n");
     free_list(head);
+    
 
     printf("\n====================================\n");
     printf("\n       TESTING MUSIC LIBRARY        \n");
@@ -81,22 +92,27 @@ int main() {
 
     printf("\n====================================\n");
     printf("\nTesting find_song\n");
-    char song[] = "Symphony No. 5";
 
+    char song[] = "Symphony No. 5";
     printf("Searching for %s\n",song);
     print_song(search_song(song));
 
     printf("\n====================================\n");
     printf("\nTesting find_artist\n");
 
-    //HOW TO PRINT SEARCH ARTIST?
     char artist[] = "Alessia Cara";
     printf("Searching for %s\n",artist);
     print_list(search_artist(artist));
+    printf("\n");
 
     char artis[] = "Ariana Grande";
     printf("Searching for %s\n",artis);
     print_list(search_artist(artis));
+    printf("\n");
+
+    char arti[] = "test";
+    printf("Searching for artist not in library %s\n",arti);
+    print_list(search_artist(arti));
 
     printf("\n====================================\n");
     printf("\nTesting print_letter\n");
@@ -110,10 +126,17 @@ int main() {
     print_artist("Ed Sheeran");
     printf("\n");
     print_artist("Alessia Cara");
+    printf("\n");
+    print_artist("test");
+    
 
     printf("\n====================================\n");
     printf("\nTesting delete_song\n");
+    printf("Deleting Focus\n");
     delete_song("Focus");
+    print_lib();
+    printf("\n");
+    delete_song("Perfect");
     print_lib();
 
     printf("\n====================================\n");

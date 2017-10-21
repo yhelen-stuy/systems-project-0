@@ -65,7 +65,7 @@ void print_lib() {
     char a = 'a';
     for (; i < 'z'-'a'; i++) {
         if (llist_len(lib[i]) > 0) {
-            printf("%c songs\n\t", (a + i));
+            printf("%c artists\n\t", (a + i));
             print_list(lib[i]);
         }
     }
@@ -120,7 +120,8 @@ void shuffle(int num_songs) {
 void delete_song(char *title) {
     struct song_node *song = search_song(title);
     char *artist = song -> artist;
-    remove_song(search_artist(artist),search_song(title));
+    printf("..Removing %s by %s..\n", song->title, song->artist);
+    remove_song(search_artist(artist),song);
 }
 
 // Clear the entire library

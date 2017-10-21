@@ -114,13 +114,19 @@ struct song_node * random_element(struct song_node *list){
 
 // Go through the list and remove a song,
 // freeing it in the process.
+//FIX IF SONG IS FIRST NODE OF FIND ARTIST
 void remove_song(struct song_node *list, struct song_node *song) {
-    while (list && list->next != song) {
+  /*if(list == song){
+      list = song -> next;
+      printf("..Removing %s by %s..\n", song->title, song->artist);
+      free(song);
+      }*/
+    while (list && list ->next != song) {
         list = list->next;
     }
     if (list) {
         list->next = song->next;
-        printf("..Removing %s by %s..\n", song->title, song->artist);
+        //printf("..Removing %s by %s..\n", song->title, song->artist);
         free(song);
     }
 }
